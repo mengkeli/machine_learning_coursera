@@ -61,24 +61,39 @@ Theta2_grad = zeros(size(Theta2));
 %               the regularization separately and then add them to Theta1_grad
 %               and Theta2_grad from Part 2.
 %
+X = [ones(m,1), X];
+Y = zeros(num_labels, m);
 
+for j = 1:size(y, 1)
+    Y(y(j) ,j) = 1;
+end
 
+h = sigmoid(Theta2 * [ones(1, m); sigmoid(Theta1 * X')]);
+J = (-1 / m) * sum(sum(Y .* log(h) + (1 - Y) .* log(1 - h ))) +  lambda / (2 * m) * ( sum(sum(Theta1(:,2:end) .^ 2)) + sum(sum(Theta2(:, 2:end) .^ 2)));
 
+Delta1 = zeros(size(Theta1));
+Delta2 = zeros(size(Theta2));
 
+% Theta1: 25 * 401
+% Theta2: 10 * 26
 
+% forward computation
+a_1 = X;   % 5000* 401
+z_2 = Theta1 * a_1';   % 25 * 5000
+a_2 = sigmoid(z_2);
+a_2 = [ones(1, m); a_2];   % 26 * 5000
+z_3 = Theta2 * a_2;   % 10 * 5000
+a_3 = sigmoid(z_3);   % 10 * 5000
 
+% backpropagation
+delta3 = a_3 - Y;   % 10 * 5000
+delta2 = Theta2(:, 2:end)' *  delta3.* sigmoidGradient(z_2);   % 25 * 5000
 
+Delta1 = delta2 * a_1;   % 25 * 401
+Delta2 = delta3 * a_2';   % 10 * 26 
 
-
-
-
-
-
-
-
-
-
-
+Theta1_grad = Delta1 ./ m + [zeros(size(Theta1, 1), 1) (lambda / m) * Theta1(:, 2:end)];
+Theta2_grad = Delta2 ./ m + [zeros(size(Theta2, 1), 1) (lambda / m) * Theta2(:, 2:end)];
 
 % -------------------------------------------------------------
 
