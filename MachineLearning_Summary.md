@@ -254,8 +254,6 @@ Note:
 
 gradApprox ：             ![F36D2FF4-E32B-43DD-96DF-68B51F248675](https://ws2.sinaimg.cn/large/006tNc79gy1fn80z1gjgkj306v01z747.jpg)
 
-![3193591F-3ADB-48D5-900D-0D10FF8FE853](/var/folders/jf/sq0tj7jd6_173n1m9rmjf35r0000gn/T/abnerworks.Typora/3193591F-3ADB-48D5-900D-0D10FF8FE853.png)
-
 
 
 ###7. Random Initialization
@@ -301,21 +299,29 @@ for i = 1:m,
 
 
 
-## 4. Neural Networks: 
+## 4.  Evaluate a Learnign Algorithm 算法评估 
+
+### 1. 检验算法是否过拟合
+
+数据分为70%训练集、30%测试集，注意数据均衡，再随机打乱。
+
+![1515317158368](../MarkdownImages/1515317158368.jpg)						
+
+![1515317248000](../MarkdownImages/1515317248000.jpg)
 
 
 
+### 2. 模型选择 Model Selection
+
+用cross_validation
 
 
 
+### 3. Bias vs. Variance
 
 
 
-
-
-
-
-
+ ### 4. Learning Curves
 
 
 
