@@ -329,7 +329,7 @@ for i = 1:m,
 
    ​
 
-### 3. Bias vs. Variance 偏差和方差
+### 3. 偏差和方差 Bias vs. Variance
 
 高偏差和高方差的问题基本上来说是欠拟合和过拟合的问题：		
 
@@ -385,7 +385,7 @@ Note：
 
   ​
 
-### 5. Error Analysis 误差分析
+### 5. 误差分析 Error Analysis
 
 构建一个学习算法的推荐方法为:
 
@@ -416,6 +416,8 @@ F1 score = 2 * P * R / (P + R): 查全率与查准率之间的权衡
 
 ## 5. Support Vector Machine
 
+在使用高斯核函数之前一定要做特征缩放
+
 
 
 
@@ -424,17 +426,15 @@ F1 score = 2 * P * R / (P + R): 查全率与查准率之间的权衡
 
 
 
+
+
 ## 7. Recommendar Systems
 
 
 
+
+
 ## 8. Large Scale Machine Learning
-
-
-
-
-
-
 
 
 
